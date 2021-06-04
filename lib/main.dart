@@ -1,6 +1,7 @@
+import 'package:ecommerceapp/home.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Home());
 
 class MyApp extends StatefulWidget {
   @override
@@ -13,32 +14,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          actions: [
-            Positioned(
-              child: Stack(
-                children: [
-                  IconButton(
-                      padding: EdgeInsets.only(top: 15),
-                      color: Colors.black,
-                      icon: Icon(Icons.notifications),
-                      onPressed: () {})
-                ],
-              ),
-            )
-          ],
-          title: Center(
-            child: Text(
-              "Ecommerce App UI",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
+        appBar: appBar(),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.only(left: 15.0),
@@ -102,9 +78,12 @@ class _MyAppState extends State<MyApp> {
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  "ACCOUNT INFORMATION",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    "ACCOUNT INFORMATION",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -158,16 +137,33 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-// Widget appBar() {
-//   return AppBar(
-//     title: Center(
-//       child: Text(
-//         "Ecoomerce App UI",
-//         style: TextStyle(
-//           fontSize: 20,
-//           fontWeight: FontWeight.bold,
-//         ),
-//       ),
-//     ),
-//   );
-// }
+Widget appBar() {
+  return AppBar(
+    leading: IconButton(
+        color: Colors.black, icon: Icon(Icons.home), onPressed: () {}),
+    backgroundColor: Colors.white,
+    actions: [
+      Positioned(
+        child: Stack(
+          children: [
+            IconButton(
+                padding: EdgeInsets.only(top: 15),
+                color: Colors.black,
+                icon: Icon(Icons.notifications),
+                onPressed: () {})
+          ],
+        ),
+      )
+    ],
+    title: Center(
+      child: Text(
+        "Ecommerce App UI",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}
