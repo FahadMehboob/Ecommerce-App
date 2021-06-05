@@ -1,7 +1,7 @@
-import 'package:ecommerceapp/home.dart';
+import 'package:ecommerceapp/product.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(Home());
+void main() => runApp(Products());
 
 class MyApp extends StatefulWidget {
   @override
